@@ -154,7 +154,23 @@ footer .wrap { display: flex; flex-wrap: wrap; gap: 8px 20px; justify-content: s
 footer nav { display: flex; flex-wrap: wrap; gap: 6px 18px; }
 footer a { color: var(--muted); }
 
+/* The video and its four steps */
+.watch { margin: 14px 0 0; font-size: 16px; }
+.watch a { color: var(--wood-ink); font-weight: 700; }
+.ad { display: grid; grid-template-columns: minmax(0, 340px) minmax(0, 1fr); gap: 48px; align-items: center; padding: 56px 0 8px; }
+.ad video { width: 100%; height: auto; aspect-ratio: 9 / 16; border-radius: 24px; background: var(--wood); box-shadow: 0 14px 40px rgba(60,40,20,.25); display: block; }
+.ad h2 { font-size: 34px; line-height: 1.15; margin: 0 0 20px; letter-spacing: -0.01em; }
+.steps { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px; counter-reset: step; }
+.steps li { font-size: 14px; line-height: 1.4; color: var(--muted); counter-increment: step; }
+.steps img { width: 100%; aspect-ratio: 9 / 16; object-fit: cover; border-radius: 14px; border: 1px solid var(--line); margin-bottom: 8px; }
+.steps strong { display: block; color: var(--ink); font-size: 16px; }
+.steps strong::before { content: counter(step) ". "; color: var(--coral); }
+
 @media (max-width: 760px) {
+  .ad { grid-template-columns: 1fr; gap: 24px; padding-top: 40px; justify-items: center; }
+  .ad video { max-width: 320px; }
+  .ad h2 { font-size: 28px; }
+  .steps { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .bar nav { gap: 12px; font-size: 14px; }
   .bar nav .wide { display: none; }
   .hero .wrap { grid-template-columns: 1fr; gap: 8px; }
